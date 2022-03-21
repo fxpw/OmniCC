@@ -17,8 +17,7 @@ local OmniCC = OmniCC
 --constants!
 local ICON_SIZE = 36 --the normal size for an icon (don't change this)
 local DAY, HOUR, MINUTE = 86400, 3600, 60 --used for formatting text
-local DAYISH, HOURISH, MINUTEHALFISH, MINUTEISH = 3600 * 23.5, 60 * 59.5, 89.5, 59.5 --used for formatting text at transition points
-local SOONISH = {}
+local DAYISH, HOURISH, MINUTEHALFISH, MINUTEISH  = 3600 * 23.5, 60 * 59.5, 89.5, 59.5 --used for formatting text at transition points
 local HALFDAYISH, HALFHOURISH, HALFMINUTEISH = DAY/2 + 0.5, HOUR/2 + 0.5, MINUTE/2 + 0.5 --used for calculating next update times
 local PADDING = 0 --amount of spacing between the timer text and the rest of the cooldown
 --local bindings!
@@ -192,7 +191,7 @@ end
 --retrieves the period style id associated with the given time frame
 --necessary to retrieve text coloring information from omnicc
 function Timer:GetPeriodStyle(s)
-	if s < SOONISH then
+	if s < OmniCCGlobalSettings.CustomTimer + 0.5 then
 		return 'soon'
 	elseif s < MINUTEISH then
 		return 'seconds'
@@ -298,13 +297,6 @@ function Timer:ForAllShownCooldowns(f, ...)
 			f(cooldown, ...)
 		end
 	end
-end
-
-function Timer:ForCustomTimer(value)
-	if value ~= 0 then
-		value = value + 0.5
-	end
-	SOONISH = value
 end
 
 --[[

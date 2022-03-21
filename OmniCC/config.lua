@@ -94,7 +94,7 @@ end
 
 function OmniCC:GetDefaults()
 	return {
-		CustomTimer = 5.5,
+		CustomTimer = 5,
 		showCooldownModels = true,
 		useBlacklist = false,
 		blacklist = {},
@@ -518,7 +518,6 @@ end
 --default value for customtimer
 function OmniCC:SetCustomTimer(value)
 	self:GetDB().CustomTimer = value
-	self.Timer:ForCustomTimer(value)
 end
 
 function OmniCC:GetCustomTimer()

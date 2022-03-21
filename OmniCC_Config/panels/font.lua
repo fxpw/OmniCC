@@ -50,6 +50,7 @@ function FontOptions:CreateCustomTimerSlider()
 	local s = self:NewSlider(L.TimerCustom, 0, 30, 1)
 	s.SetSavedValue = function(self, value)
 		OmniCC:SetCustomTimer(value)
+		OmniCCGlobalSettings.CustomTimer = value
 	end
 	s.GetSavedValue = function(self)
 		return OmniCC:GetCustomTimer()
