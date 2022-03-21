@@ -3,7 +3,7 @@
 ## Notes: |@Version: 1@|Shows ability cooldowns
 ## Notes-ruRU: |@Version: 1@|Показывает перезарядку способностей
 ## Author: Tuller, Master-f1 (перевёл на русский)
-## Version: 3.0.5
+## Version: 3.0.6
 ## SavedVariables: OmniCCGlobalSettings
 embeds.xml
 localization.xml
